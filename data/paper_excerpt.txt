@@ -1,0 +1,31 @@
+paper_excerpt = """
+Transformer models have fundamentally changed the landscape of natural language processing 
+since their introduction in the seminal 2017 paper "Attention Is All You Need" by Vaswani 
+et al. Unlike recurrent neural networks, which process tokens sequentially, transformers 
+process entire sequences in parallel using a mechanism called self-attention. This allows 
+the model to weigh the relevance of each token relative to every other token in the sequence, 
+capturing long-range dependencies that RNNs struggled with.
+
+The core innovation of the transformer is the multi-head attention mechanism. Rather than 
+computing a single attention distribution, multi-head attention runs several attention 
+operations in parallel, each learning to focus on different aspects of the input — some 
+heads may attend to syntactic relationships, others to semantic ones. The outputs of these 
+heads are concatenated and projected into the final representation.
+
+Positional encoding is another critical component. Since transformers process tokens in 
+parallel rather than sequentially, they have no inherent sense of token order. Positional 
+encodings — either fixed sinusoidal functions or learned embeddings — are added to the 
+input representations to inject order information.
+
+The transformer architecture has since spawned two dominant paradigms: encoder-only models 
+like BERT, which excel at understanding tasks such as classification and named entity 
+recognition; and decoder-only models like GPT, which are optimized for generation tasks. 
+Encoder-decoder models like the original transformer and T5 bridge both, handling tasks 
+that require reading input and producing output, such as translation and summarization.
+
+Training these models at scale revealed the phenomenon of emergent capabilities — behaviors 
+that appear suddenly at certain parameter thresholds and were not present in smaller versions 
+of the same architecture. This has driven a race toward ever-larger models, raising important 
+questions about computational cost, environmental impact, and the accessibility of frontier 
+AI research.
+"""

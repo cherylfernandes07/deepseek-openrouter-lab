@@ -1,0 +1,22 @@
+reviews = [
+    {
+        "id": "r1",
+        "rating": 1,
+        "text": "The product broke after one day. Complete waste of money. Never buying from this brand again."
+    },
+    {
+        "id": "r2", 
+        "rating": 5,
+        "text": "Absolutely love this! Fast shipping, great quality, exactly as described. Will definitely order again."
+    },
+    {
+        "id": "r3",
+        "rating": 2,
+        "text": "Item arrived late and the packaging was damaged. The product itself seems okay but I'm disappointed with the experience."
+    },
+    {
+        "id": "r3",
+        "rating": 3,
+        "text": "Please cancel the entire order #484253 and refund the entire amount. I'm expecting around $32.82 to be refunded."
+    }    
+]
