@@ -193,3 +193,60 @@ numpy
 - LLM-as-judge evaluation pattern
 - Multi-step chained pipelines and information loss
 - Cost/quality/latency tradeoff analysis across model variants
+
+---
+
+## Using This as a Live Interview Demo
+
+The comparison harness in Phase 4 is designed to be run live. Swapping models
+is a single string change — the rest of the code doesn't move.
+
+### Swap any model in real time
+
+```python
+# Change this one line to demo any model an interviewer asks about
+result = query_model(
+    model="anthropic/claude-sonnet-4-6",   # swap to anything on OpenRouter
+    prompt=your_prompt,
+)
+```
+
+### Add a new model to the benchmark
+
+```python
+MODELS = {
+    "v3":      "deepseek/deepseek-chat-v3-0324",
+    "r1":      "deepseek/deepseek-r1",
+    "r1_0528": "deepseek/deepseek-r1-0528",
+    "gpt4o":   "openai/gpt-4o-mini",            # add any model here
+    "claude":  "anthropic/claude-sonnet-4-6",   # rerun Phase 4 to compare
+}
+```
+
+Rerun the Phase 4 cells and the comparison table updates automatically with
+the new model's quality score, latency, cost, and provider.
+
+### Models worth knowing
+
+| Provider | OpenRouter ID | Notes |
+|---|---|---|
+| DeepSeek | `deepseek/deepseek-chat-v3-0324` | Fast, cheap, strong general performance |
+| DeepSeek | `deepseek/deepseek-r1` | Reasoning — needs 2000+ token budget |
+| Anthropic | `anthropic/claude-sonnet-4-6` | Strong instruction following |
+| Google | `google/gemini-2.0-flash-001` | Multimodal, fast |
+| Meta | `meta-llama/llama-3.3-70b-instruct` | Open weight, cost-efficient |
+| OpenAI | `openai/gpt-4o-mini` | Familiar baseline for interviewers |
+| Mistral | `mistralai/mistral-large` | European compliance use cases |
+
+Full catalog with live pricing: [openrouter.ai/models](https://openrouter.ai/models)
+
+### The interview move
+
+If an interviewer asks "can you show me this with GPT-4o instead?" — change
+one line, rerun Phase 4, hand them a cost/quality/latency table specific to
+their use case. That live swap demonstrates model-agnostic architecture more
+convincingly than any slide about it.
+
+> **Note:** Some providers (Anthropic, OpenAI) require their own API key passed
+> through OpenRouter. Check the model page for a lock icon before an interview
+> and test auth in advance.
