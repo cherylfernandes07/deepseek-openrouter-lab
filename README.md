@@ -245,7 +245,9 @@ Full catalog with live pricing: [openrouter.ai/models](https://openrouter.ai/mod
 If an interviewer asks "can you show me this with GPT-4o instead?" — change
 one line, rerun Phase 4, hand them a cost/quality/latency table specific to
 their use case. That live swap demonstrates model-agnostic architecture more
-convincingly than any slide about it.
+convincingly than any slide about it. 
+
+See a list of the models to use: https://openrouter.ai/models
 
 > **Note:** Some providers (Anthropic, OpenAI) require their own API key passed
 > through OpenRouter. Check the model page for a lock icon before an interview
