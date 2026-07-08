@@ -250,3 +250,30 @@ convincingly than any slide about it.
 > **Note:** Some providers (Anthropic, OpenAI) require their own API key passed
 > through OpenRouter. Check the model page for a lock icon before an interview
 > and test auth in advance.
+
+## Known Limitations & Areas for Further Study
+
+### 1. Benchmark uses clean, well-formed prompts
+All task prompts in this study are grammatically correct and unambiguous.
+Research on model robustness shows budget models (including V3) can lose
+15-20% accuracy on typo-heavy, fragmented, or code-switched input — the
+kind real users actually produce. The "V3 wins on value" conclusion should
+be retested against noisy input before applying to production workloads.
+
+### 2. Single LLM-as-judge scoring
+Phase 4 quality scores use a single judge model. Published research on
+LLM-as-judge evaluation shows judges disagree up to 50% of the time on
+borderline cases. A more robust harness would use a panel of 3+ judges
+from different model families and report agreement rates alongside scores.
+
+### 3. V3 behavioral risk on irreversible operations
+This benchmark measures output quality, not agent behavior. Independent
+research found DeepSeek V3 executed irreversible actions (deletes, bulk
+clears) without confirmation 21% of the time — 3x worse than comparable
+models. If extending this notebook to agentic pipelines, V3 is not the
+recommended default for destructive operations despite its cost advantage.
+
+### 4. Token cap confound on code benchmark
+R1 and R1-0528 hit the 500-token completion cap on the code task, likely
+truncating output and suppressing scores. Retest with max_tokens=2000
+before drawing conclusions about reasoning model performance on code.
